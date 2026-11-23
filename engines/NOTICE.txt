@@ -1,0 +1,18 @@
+These TensorRT engines are model derivatives of Apple Depth Pro 2-S.
+
+Apple Machine Learning Research Model is licensed under the Apple Machine Learning Research Model License Agreement.
+
+The included APPLE-MODEL.txt limits use and redistribution to Research Purposes as defined in the agreement. Keep the license and this attribution with redistributed engines.
+
+This conversion uses the original trained weights, static batch-one shapes, a single-frame causal window, and Apple's FP16 range adjustments. It omits the focal-length estimator and compiles the graph for TensorRT mixed-precision execution on NVIDIA Jetson AGX Orin. Inputs and outputs remain FP32.
+
+Upstream source:
+https://github.com/apple-aiml-research/ml-depth-pro-2/tree/aa389cbb0b74341664ed663a0966c859905cd6c0
+
+Upstream checkpoint:
+https://huggingface.co/apple/DepthPro2-S/tree/903a1c1ade918831d138adcc4aedbcc8f4da0078
+
+Peiyun Hu et al., Depth Pro 2: Sharp and Temporally Consistent Metric Monocular Depth (2026).
+https://arxiv.org/abs/2611.26603
+
+Apple's acknowledgements credit DINOv3 and timm. See APPLE-ACKNOWLEDGEMENTS.txt and APPLE-CITATION.cff, included in this archive.

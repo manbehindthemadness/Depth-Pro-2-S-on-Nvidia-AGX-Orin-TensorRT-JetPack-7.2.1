@@ -1,0 +1,6 @@
+/work/
+/third_party/
+/.venv-export/
+/.venv-check/
+__pycache__/
+*.pyc
