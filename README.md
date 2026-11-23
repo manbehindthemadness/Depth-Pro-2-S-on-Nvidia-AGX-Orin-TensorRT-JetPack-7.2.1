@@ -1,6 +1,6 @@
 # Depth Pro 2-S TensorRT engines for Jetson AGX Orin
 
-An independent conversion of Apple Depth Pro 2-S for single-frame inference on the Jetson AGX Orin GPU. The first published build and engine set is tagged `v1.0.0`.
+An independent conversion of Apple Depth Pro 2-S for single-frame inference on the Jetson AGX Orin GPU. The first published build and engine set is tagged `v1.0.0`. The `v1.0.1` documentation update adds the 864×544 CUDA comparison.
 
 **Research use.** The engines are model derivatives of Apple Depth Pro 2-S. Apple's agreement limits their use and redistribution to noncommercial scientific research and academic development as defined in the agreement. [Apple model license](licenses/APPLE-MODEL.txt)
 
@@ -56,6 +56,7 @@ Both backends ran on the same Jetson AGX Orin GPU with the same batch-one RGB in
 | --- | ---: | ---: | ---: | ---: |
 | 320×200 | 4.12 ms | 34.16 ms | 34.12 ms | 8.29× |
 | 640×400 | 10.80 ms | 36.93 ms | 37.13 ms | 3.42× |
+| 864×544 | 19.12 ms | 40.88 ms | 40.92 ms | 2.14× |
 | 1280×800 | 49.81 ms | 77.21 ms | 75.84 ms | 1.55× |
 
 With inputs and outputs resident on the GPU, the CUDA-event medians were as follows.
@@ -64,11 +65,12 @@ With inputs and outputs resident on the GPU, the CUDA-event medians were as foll
 | --- | ---: | ---: | ---: |
 | 320×200 | 4.02 ms | 34.06 ms | 33.94 ms |
 | 640×400 | 10.53 ms | 36.87 ms | 37.11 ms |
+| 864×544 | 18.61 ms | 40.85 ms | 40.84 ms |
 | 1280×800 | 48.99 ms | 76.50 ms | 75.01 ms |
 
 The ARM64 PyTorch wheel reported a support warning for Orin's SM 8.7. Both eager modes executed on CUDA and returned finite depth maps on the validation inputs. The timings describe that build of PyTorch.
 
-The separate 864×544 TensorRT test measured 20.22 ms median including transfers.
+The 864×544 comparison was measured in a follow-up run using the same benchmark procedure and software versions.
 
 ## Build on Jetson
 
